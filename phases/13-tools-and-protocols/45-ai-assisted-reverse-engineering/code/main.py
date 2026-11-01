@@ -757,7 +757,7 @@ def field_bytes(candidate: Candidate, workdir: Path | None = None, target: Path 
     if object_path is None:
         if candidate.committed_object.exists():
             return {"status": "unknown", "evidence": "the committed object does not match the current candidate source, and the fixture compiler is not available to rebuild it", "detail": {}}
-        return {"status": "unknown", "evidence": "no clang and no committed object", "detail": {}}
+        return {"status": "unknown", "evidence": "no fixture-compiler rebuild and no committed object", "detail": {}}
     original = ElfObject(target).function(candidate.function)
     rebuilt_obj = ElfObject(object_path)
     try:
